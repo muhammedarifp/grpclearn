@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package mine;
+
+option go_package = "./proto";
+
+service Greet {
+    rpc SayHello(Request) returns (Response);
+    rpc SayHalloClientStreming(stream Request) returns (NamesRes);
+}
+
+message Request {
+    string name = 1;
+}
+
+message NamesRes {
+    repeated string names = 1;
+}
+
+message Response {
+    string message = 1;
+}
